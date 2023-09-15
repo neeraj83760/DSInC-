@@ -13,7 +13,7 @@ BST *root = NULL, *newNode, *traversePointer;
 BST *insertElement()
 {
 
-    for (int i = 0; i < 6; i++)
+    for (int i = 0; i < 7; i++)
     {
 
         newNode = new BST;
@@ -68,11 +68,7 @@ BST *insertElement()
 void InorderTraversal(BST *ptr)
 {
     // std::cout << "InorderTraversal function called :" << counter++ << endl;
-    if (ptr == nullptr)
-    {
-        return;
-    }
-    else
+    if (ptr != nullptr)
     {
         InorderTraversal(ptr->Lchild);
         std::cout << ptr->node << " ";
@@ -109,3 +105,4 @@ int main()
 
     return 0;
 }
+
