@@ -1,21 +1,16 @@
 #include <iostream>
 using namespace std;
 
-/* If you are making a tree and the element u are trying to insert is equal to root element
-then either put it in the leftsub tree or right sub tree.
-*/
-
 struct BST
 {
-
-    BST *Lchild = NULL;
     int node;
-    BST *Rchild = NULL;
+    BST *Lchild = nullptr;
+    BST *Rchild = nullptr;
 };
 
-BST *root = NULL, *newNode, *traversePointer,*curr;
+BST *root = NULL, *newNode, *traversePointer;
 
-void insertElement()
+BST *insertElement()
 {
 
     for (int i = 0; i < 6; i++)
@@ -24,26 +19,27 @@ void insertElement()
         newNode = new BST;
         std::cin >> newNode->node;
 
-        if (root == NULL) 
+        if (root == NULL)
         {
-        root = newNode;
-        std::cout<< "The left of Root element :" << root->Lchild <<endl;
-        std::cout<< "The element sucessfully Inserted as a Root element :" << newNode->node <<endl;
-        std::cout<< "The right Root element :" << root->Rchild <<endl;
-        }    
-        
-        else{
-        traversePointer = root;  
+            root = newNode;
+            std::cout << "The left of Root element :" << root->Lchild << endl;
+            std::cout << "The element sucessfully Inserted as a Root element :" << newNode->node << endl;
+            std::cout << "The right Root element :" << root->Rchild << endl;
+        }
+
+        else
+        {
+            traversePointer = root;
             while (true)
             {
                 if (newNode->node > traversePointer->node)
                 {
-                    if (traversePointer->Rchild == NULL)
+                    if (traversePointer->Rchild == nullptr)
                     {
                         traversePointer->Rchild = newNode;
-                        std::cout<< "The left of Right child element :" << traversePointer->Lchild <<endl;
-                        std::cout<< "The element sucessfully Inserted as a Right Child :" << newNode->node <<endl;
-                        std::cout<< "The right of Right child element :" << traversePointer->Rchild <<endl;
+                        std::cout << "The left of previous element :" << traversePointer->Lchild << endl;
+                        std::cout << "The element sucessfully Inserted as a Right Child :" << newNode->node << endl;
+                        std::cout << "The right of the previous element :" << traversePointer->Rchild << endl;
                         break;
                     }
 
@@ -52,39 +48,64 @@ void insertElement()
 
                 else
                 {
-                    if (traversePointer->Lchild == NULL)
+                    if (traversePointer->Lchild == nullptr)
                     {
-                       traversePointer->Lchild = newNode;
-                       std::cout<< "The left of left child element :" << traversePointer->Lchild <<endl;
-                       std::cout<< "The element sucessfully Inserted as a left Child :" << newNode->node <<endl;
-                       std::cout<< "The right of left child element :" << traversePointer->Rchild <<endl;
-                       break;
+                        traversePointer->Lchild = newNode;
+                        std::cout << "The left of previous element :" << traversePointer->Lchild << endl;
+                        std::cout << "The element sucessfully Inserted as a left Child :" << newNode->node << endl;
+                        std::cout << "The right of previous element :" << traversePointer->Rchild << endl;
+                        break;
                     }
                     traversePointer = traversePointer->Lchild;
                 }
             }
         }
-   }   
-}
+    }
 
+    return root;
+}
 
 void InorderTraversal(BST *ptr)
 {
-    if(ptr == NULL) return;
-    InorderTraversal(ptr->Lchild);
-    std::cout << ptr->node <<endl;
-    InorderTraversal(ptr->Lchild);
-    
+    // std::cout << "InorderTraversal function called :" << counter++ << endl;
+    if (ptr == nullptr)
+    {
+        return;
+    }
+    else
+    {
+        InorderTraversal(ptr->Lchild);
+        std::cout << ptr->node << " ";
+        InorderTraversal(ptr->Rchild);
+    }
 }
 
-int main()
-{   
-    std::cout << "Insert Elements in the BST Tree"<<endl;
-    insertElement();
+// void InorderTraversal(BST *root){
+// Iterative InorderTraversal of a Binary Search Tree
+//      std::stack<BST*> stack;
+//     BST* current = root;
 
-    curr = root;
-    std::cout << "Inorder traversal of BST Tree Is: "<<endl;
-    InorderTraversal(curr);
+//     while (current || !stack.empty()) {
+//         while (current) {
+//             stack.push(current);
+//             current = current->Lchild;
+//         }
+
+//         current = stack.top();
+//         stack.pop();
+//         std::cout << current->node << " ";
+
+//         current = current->Lchild;
+//     }
+// }
+
+int main()
+{
+    std::cout << "Insert Elements in the BST Tree" << endl;
+    BST *root = insertElement();
+
+    std::cout << "Inorder traversal of BST Tree Is: " << endl;
+    InorderTraversal(root);
 
     return 0;
 }
