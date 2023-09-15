@@ -78,6 +78,8 @@ void DeleteElement(BST *root, int key){
    3    6   15  21
            /  
          13
+          \
+           14
 */        
 
 }
