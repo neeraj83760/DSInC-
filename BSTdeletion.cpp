@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std; 
+void findKey(BST *);
 
 struct BST{
 
@@ -59,7 +60,27 @@ return root;
 
 void DeleteElement(BST *root, int key){
 
-// The node which u deleting has no child, Leaf node deletion 
+// The node which u r deleting has no child, Leaf node deletion 
+
+if(root!=NULL){
+DeleteElement(root->Lchild, key);
+    if(key == root->val){
+
+    if((root->Lchild && root->Rchild) == NULL){
+
+
+    }
+
+    if(root->Lchild == NULL || root->Rchild == NULL){}
+
+    if((root->Lchild && root->Rchild) != NULL){}
+}
+DeleteElement(root->Rchild, key);
+}
+
+
+
+
 
 
 // The node which u are deleting has one child, attach its child with its grandparent 
@@ -80,7 +101,9 @@ void DeleteElement(BST *root, int key){
          13
           \
            14
-*/        
+*/
+
+
 
 }
 
