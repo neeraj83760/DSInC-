@@ -76,25 +76,6 @@ void InorderTraversal(BST *ptr)
     }
 }
 
-// void InorderTraversal(BST *root){
-// Iterative InorderTraversal of a Binary Search Tree
-//      std::stack<BST*> stack;
-//     BST* current = root;
-
-//     while (current || !stack.empty()) {
-//         while (current) {
-//             stack.push(current);
-//             current = current->Lchild;
-//         }
-
-//         current = stack.top();
-//         stack.pop();
-//         std::cout << current->node << " ";
-
-//         current = current->Lchild;
-//     }
-// }
-
 int main()
 {
     std::cout << "Insert Elements in the BST Tree" << endl;

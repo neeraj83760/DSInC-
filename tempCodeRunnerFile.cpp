@@ -1,2 +1,2 @@
-s1.pop();
-// s1.pop();
+s1.dequeue();
+// s1.dequeue();
