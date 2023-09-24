@@ -37,12 +37,29 @@ Secondary Clustering: Secondary clustering is less severe, two records only have
 
 S.No.	Separate Chaining	                       Open Addressing
 1.	Chaining is Simpler to implement.	           Open Addressing requires more computation.
-2.	In chaining, Hash table never fills up, we can always add more elements to chain.	In open addressing, table may become full.
-3.	Chaining is Less sensitive to the hash function or load factors.	Open addressing requires extra care to avoid clustering and load factor.
-4.	Chaining is mostly used when it is unknown how many and how frequently keys may be inserted or deleted.	Open addressing is used when the frequency and number of keys is known.
-5.	Cache performance of chaining is not good as keys are stored using linked list.	Open addressing provides better cache performance as everything is stored in the same table.
-6.	Wastage of Space (Some Parts of hash table in chaining are never used).	In Open addressing, a slot can be used even if an input doesn’t map to it.
-7.	Chaining uses extra space for links.	No links in Open addressing
+
+2.	In chaining, Hash table never fills up,        In open addressing, table may become full.
+we can always add more elements to chain .
+
+3.	Chaining is Less sensitive to the hash         Open addressing requires extra care to avoid clustering and load factor.
+                                                   function or load factors.
+
+4.	Chaining is mostly used when it is unknown      Open addressing is used when the frequencyandnumber of keys known.
+how many and how frequently keys may be inserted
+or deleted.
+
+
+5.	Cache performance of chaining is not good as    Open addressing provides better cache performance as everything s                                                  stored in 
+                                                    the same table.
+keys are stored using linked list.	
+
+
+6.	Wastage of Space (Some Parts of hash table      In Open addressing a slot can be used even if an inputdoesn't d                                                   map to it.
+in chaining are never used).	
+
+7.	Chaining uses extra space for links.	        No links in Open addressing
+
+
 
 Note: Cache performance of chaining is not good because when we traverse a Linked List, we are basically jumping from one node to another, all across the computer’s memory. For this reason, the CPU cannot cache the nodes which aren’t visited yet, this doesn’t help us. But with Open Addressing, data isn’t spread, so if the CPU detects that a segment of memory is constantly being accessed, it gets cached for quick access.
 
